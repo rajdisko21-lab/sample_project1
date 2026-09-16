@@ -1,0 +1,6 @@
+{
+  "name": "Feedback Portal",
+  "description": "Comprehensive feedback collection and dashboard portal with local authentication, interactive submission forms, analytics, and status tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
