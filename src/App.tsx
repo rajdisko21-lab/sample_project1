@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { Dashboard } from './components/Dashboard';
 import { FeedbackForm } from './components/FeedbackForm';
@@ -148,7 +148,7 @@ export default function App() {
       {/* Global Navigation Header */}
       <Navbar
         currentPage={currentPage}
-        onNavigate={(page) => {
+        onNavigate={(page:AppPage) => {
           setCurrentPage(page);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
@@ -165,9 +165,9 @@ export default function App() {
           <Dashboard
             feedbacks={feedbacks}
             currentUser={currentUser}
-            onSelectFeedback={(item) => setSelectedFeedback(item)}
+            onSelectFeedback={(item:FeedbackItem) => setSelectedFeedback(item)}
             onToggleUpvote={handleToggleUpvote}
-            onNavigate={(page) => {
+            onNavigate={(page:AppPage) => {
               setCurrentPage(page);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
@@ -189,22 +189,22 @@ export default function App() {
         {currentPage === 'login' && (
           <AuthPage
             initialMode="login"
-            onSuccess={(u) => {
+            onSuccess={(u:User) => {
               setUser(u);
               showToast(`Logged in as ${u.name}`);
             }}
-            onNavigate={(page) => setCurrentPage(page)}
+            onNavigate={(page:AppPage) => setCurrentPage(page)}
           />
         )}
 
         {currentPage === 'register' && (
           <AuthPage
             initialMode="register"
-            onSuccess={(u) => {
+            onSuccess={(u:User) => {
               setUser(u);
               showToast(`Welcome, ${u.name}!`);
             }}
-            onNavigate={(page) => setCurrentPage(page)}
+            onNavigate={(page:AppPage) => setCurrentPage(page)}
           />
         )}
       </main>
